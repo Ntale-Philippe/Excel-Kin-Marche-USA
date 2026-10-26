@@ -26,7 +26,7 @@ La préparation se fait dans Excel. Des colonnes calculées extraient l'année, 
 
 Trois segments (année, région et produit) pilotent ces tableaux croisés. Leur sélection est reportée dans une colonne de filtre, à l'aide des fonctions NB.SI, et les indicateurs et graphiques sont recalculés avec SOMME.SI. Les quatre indicateurs, la courbe mensuelle, la carte des États, l'anneau des canaux et les barres des détaillants réagissent ainsi tous aux mêmes filtres.
 
-Les chiffres ci-dessous ont été recalculés à part en Python, directement sur les données, pour contrôler le tableau de bord et mesurer l'effet des anomalies.
+Les chiffres ci-dessous ont été recalculés à part en Python, directement sur les données, pour contrôler le tableau de bord et mesurer l'effet des anomalies. J'utilise Claude, un assistant IA, pour m'aider dans ces vérifications et pour améliorer le design de mes tableaux de bord.
 
 #### Les résultats
 
