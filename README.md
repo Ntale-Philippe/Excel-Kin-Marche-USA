@@ -1,8 +1,8 @@
-### Kin Marché USA : où et comment se vendent les articles de sport aux États-Unis ?
+### Où et comment se vendent les articles de sport aux États-Unis ?
 
-Ce projet est un tableau de bord Excel interactif. Les données sont le jeu public des ventes Adidas aux États-Unis (Kaggle), traduit en français pour l'exercice. L'enseigne Kin Marché sert de mise en situation : ces chiffres ne sont pas les siens.
+Ce projet est un tableau de bord Excel interactif. Les données sont le jeu public des ventes Adidas aux États-Unis (Kaggle), traduit en français pour l'exercice.
 
-![Tableau de bord Excel Kin Marché USA](docs/dashboard.png)
+![Tableau de bord Excel des ventes d'articles de sport aux États-Unis](docs/dashboard.png)
 
 #### Le problème
 
@@ -18,13 +18,13 @@ Pour 40 % des lignes, le chiffre d'affaires vaut exactement dix fois le prix mul
 
 Ensuite, 2020 ne couvre que 9 États et 5 détaillants, contre 46 États et 6 détaillants en 2021. Une partie de la hausse entre les deux années vient donc d'un périmètre plus large, pas de ventes plus fortes.
 
-Enfin, la traduction a touché des noms propres : le détaillant West Gear est devenu « Ouest Gear », certains États sont à moitié traduits, comme « Sud Carolina », et le canal Outlet est devenu « Sortie ».
+Enfin, la traduction a touché des noms propres : le détaillant West Gear était devenu « Ouest Gear », certains États étaient à moitié traduits, comme « Sud Carolina », la région Midwest était devenue « Milieu ouest » et le canal Outlet « Sortie ». Ces noms ont été corrigés dans le classeur.
 
 #### La méthode
 
 La préparation se fait dans Excel. Des colonnes calculées extraient l'année, le mois et le jour de la semaine, et rétablissent le nom anglais des États pour que la carte les reconnaisse. Les données forment une plage nommée qui alimente des tableaux croisés dynamiques.
 
-Trois segments (année, région et produit) pilotent ces tableaux croisés. Leur sélection est reportée dans une colonne de filtre, à l'aide des fonctions NB.SI, et les indicateurs et graphiques sont recalculés avec SOMME.SI. Les quatre indicateurs, la courbe mensuelle, la carte des États, l'anneau des canaux et les barres des détaillants réagissent ainsi tous aux mêmes filtres.
+Trois segments (année, région et produit) pilotent ces tableaux croisés. Leur sélection est reportée dans une colonne de filtre, à l'aide des fonctions NB.SI, et les indicateurs et graphiques sont recalculés avec SOMME.SI. Les quatre indicateurs, la courbe mensuelle, la carte des États, l'anneau des canaux et les barres des détaillants réagissent ainsi tous aux mêmes filtres. L'anneau des canaux compte les unités vendues plutôt que le chiffre d'affaires, pour ne pas dépendre de l'anomalie décrite plus haut.
 
 Les chiffres ci-dessous ont été recalculés à part en Python, directement sur les données, pour contrôler le tableau de bord et mesurer l'effet des anomalies. J'utilise Claude, un assistant IA, pour m'aider dans ces vérifications et pour améliorer le design de mes tableaux de bord.
 
@@ -38,7 +38,7 @@ Deux détaillants font la moitié des ventes : West Gear (27 %) et Foot Locker (
 
 L'Ouest est la première région, avec 30 % des ventes. New York, la Californie, la Floride et le Texas en réalisent à eux quatre plus d'un quart. Le Sud, plus modeste en volume, a la meilleure marge, 42 %.
 
-Pour les canaux, l'anneau du tableau de bord place le magasin en tête avec 40 % du chiffre d'affaires. Ce résultat repose sur l'anomalie décrite plus haut, puisque toutes les ventes en magasin sont multipliées par dix. En unités vendues, une mesure que l'anomalie ne touche pas, c'est la vente en ligne qui arrive en tête avec 38 %, devant le magasin d'usine (34 %) et le magasin (28 %). La vente en ligne a aussi la meilleure marge, 39 %.
+Pour les canaux, le chiffre d'affaires placerait le magasin en tête avec 40 %, mais ce résultat repose sur l'anomalie décrite plus haut, puisque toutes les ventes en magasin sont multipliées par dix. En unités vendues, la mesure retenue dans le tableau de bord, c'est la vente en ligne qui arrive en tête avec 38 %, devant le magasin d'usine (34 %) et le magasin (28 %). La vente en ligne a aussi la meilleure marge, 39 %.
 
 Les chaussures de rue pour hommes sont le produit phare : 23 % des ventes et la meilleure marge, 40 %. Les vêtements pour femmes suivent, avec 20 %.
 
@@ -46,9 +46,9 @@ Enfin, le jeudi et le vendredi sont les jours les plus forts (16 % des ventes ch
 
 #### Recommandations et impact
 
-La première décision est de fiabiliser la donnée. Les lignes multipliées par dix portent 96 % du chiffre d'affaires affiché : tant qu'elles ne sont pas corrigées à la source, les canaux doivent se comparer en unités vendues, et les noms propres doivent retrouver leur forme d'origine.
+La première décision est de fiabiliser la donnée. Les lignes multipliées par dix portent 96 % du chiffre d'affaires affiché : tant qu'elles ne sont pas corrigées à la source, les canaux doivent se comparer en unités vendues, comme le fait désormais le tableau de bord.
 
-Il faut ensuite miser sur la vente en ligne. C'est le premier canal en volume et le plus rentable, alors que le tableau de bord, faussé par l'anomalie, laisse croire l'inverse.
+Il faut ensuite miser sur la vente en ligne. C'est le premier canal en volume et le plus rentable, alors qu'un tableau de bord fondé sur le chiffre d'affaires laisserait croire l'inverse.
 
 West Gear et Foot Locker assurent à eux deux la moitié des ventes : ces partenariats sont à sécuriser en priorité. Les conditions obtenues avec Sports Direct, le plus rentable, peuvent servir de référence dans les négociations.
 
@@ -58,6 +58,6 @@ Enfin, les chaussures de rue pour hommes, à la fois produit le plus vendu et le
 
 #### Ouvrir le projet
 
-Téléchargez Dashboard-Kin-Marche-USA.xlsx et ouvrez-le avec Excel pour Microsoft 365 ou Excel 2019, qui gèrent les segments et la carte des États. La feuille Dashboard contient le tableau de bord, donneesVentes les données et Calculs les tableaux intermédiaires.
+Téléchargez Dashboard-Ventes-Sport-USA.xlsx et ouvrez-le avec Excel pour Microsoft 365 ou Excel 2019, qui gèrent les segments et la carte des États. La feuille Dashboard contient le tableau de bord, donneesVentes les données et Calculs les tableaux intermédiaires.
 
 Auteur : Philippe Ntale
